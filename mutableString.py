@@ -14,17 +14,41 @@ class String():
 		return ''.join(self.__listofthestring) == o
 	def __ne__(self, o: object) -> bool:
 		return not self == o
-	def __add__(self,o):
-		return self.__class__(''.join(self.__listofthestring) + str(o))
-	def __radd__(self,o):
-		return self.__class__(''.join(self.__listofthestring) + str(o))
+
 	def __sub__(self,o):
-		return self.__class__(''.join(self.__listofthestring) - str(o))
+		try:
+			return self.__class__(''.join(self.__listofthestring) - o)
+		except:
+			return NotImplemented
 	def __rsub__(self,o):
-		return self.__class__(''.join(self.__listofthestring) - str(o))
+		try:
+			return self.__class__(''.join(self.__listofthestring) - o)
+		except:
+			return NotImplemented
+	def __add__(self,o):
+		try:
+			return self.__class__(''.join(self.__listofthestring) + o)
+		except:
+			return NotImplemented
+	def __radd__(self,o):
+		try:
+			return self.__class__(''.join(self.__listofthestring) + o)
+		except:
+			return NotImplemented
 	def format(self,*pargs,**kwargs):
 		res=''.join(self.__listofthestring)
-		res.format(*pargs,**kwargs)
+		return self.__class__(res.format(*pargs,**kwargs))
+	def __mul__(self,other):
+		try:
+			return self.__class__(''.join(self.__listofthestring) * other)
+		except:
+			return NotImplemented
+	def __rmul__(self,other):
+		try:
+			return self.__class__(''.join(self.__listofthestring) * other)
+		except:
+			return NotImplemented
+
 
 
 
