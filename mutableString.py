@@ -14,7 +14,6 @@ class String():
 		return ''.join(self.__listofthestring) == o
 	def __ne__(self, o: object) -> bool:
 		return not self == o
-
 	def __sub__(self,o):
 		try:
 			return self.__class__(''.join(self.__listofthestring) - o)
